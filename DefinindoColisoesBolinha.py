@@ -17,6 +17,7 @@ player2 = pygame.image.load("assets/assets/player2.png")
 ball = pygame.image.load("assets/assets/ball.png")
 ball_x = 617
 ball_y = 337
+ball_dir = -2
 
 
 def move_player():
@@ -41,8 +42,14 @@ def move_player():
 def move_ball():
     global ball_x
     global ball_y
+    global ball_dir
 
-    ball_x += 1
+    ball_x += ball_dir
+
+    if ball_x < 120:
+        if player1_y < ball_y + 23:
+            if player1_y + 146 > ball_y:
+                ball_dir *= -1
 
 
 def draw():
